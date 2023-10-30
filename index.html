@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nehasheth2/data-viz-vegalite/main/inventory.json"
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "Year Constructed",
+      "type": "temporal",
+      "title": "Year Constructed"
+    },
+    "y": {
+      "field": "Square Footage",
+      "type": "quantitative",
+      "title": "Square Footage"
+    },
+    "color": {"value": "steelblue"}
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
